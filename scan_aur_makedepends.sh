@@ -1,5 +1,10 @@
 #!/bin/sh
 
+if [ $# != 2 ]; then
+echo "Usage: $0 [packagefilter] [makedepend]"
+exit 0
+fi
+
 PKGNAMES=$(package-query -SAs -f "%n" "$1")
 for PKGNAME in ${PKGNAMES}; do
 {
